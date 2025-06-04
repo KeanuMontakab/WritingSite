@@ -12,6 +12,20 @@
             pointer-events: none;
         }
 
+        .spoiler, .spoiler2, .spoiler a, .spoiler2 a {
+            color: black;
+            background-color: black;
+        }
+
+            .spoiler:hover, .spoiler:hover a {
+                color: white;
+            }
+
+            .spoiler2:hover, .spoiler2:hover a {
+                background-color: white;
+            }
+
+
     </style>
 </head>
 <body>
@@ -22,9 +36,15 @@
 
     <h2>Please choose a work: </h2>
 
-    <a id="thirdPosition" href="thirdPositionPage.html" style="text-decoration: none; color: inherit;">Third Position</a>
+    <a id="thirdPosition" href="thirdPositionPage.html" style="text-decoration: none; color: inherit;">Third Position</a> <br />
 
     <img id="imageThird" class="hover-image" src="thirdPositionImage.jpg" alt="drawing for Third Position" style="width:200px">
+
+    <a id="headPosition2" href="headPage.html" style="text-decoration: none; color: inherit;">J<span class="spoiler2">ames McMaster </span> Stopped Giving Me Head</a> <br />
+
+    <img id="imageHead" class="hover-image" src="headImage.jpg" alt="drawing for Stopped Giving me Head" style="width:200px">
+
+    <a id="headPosition" href="headPage.html" style="text-decoration: none; color: inherit;"><del>James McMaster</del></span> Stop Giving Me Head</a>
 
     <script>
         const imageMe = document.getElementById('drawofme');
@@ -33,9 +53,12 @@
         const third = document.getElementById('thirdPosition');
         const imageThird = document.getElementById('imageThird');
 
+        const head = document.getElementById('headPosition');
+        const imageHead = document.getElementById('imageHead');
+
         document.addEventListener('mousemove', (e) => {
             const el = document.elementFromPoint(e.clientX, e.clientY);
-         
+
             if (header.contains(el)) {
                 imageMe.style.left = (e.pageX + 10) + 'px';
                 imageMe.style.top = (e.pageY + 0) + 'px';
@@ -51,6 +74,14 @@
                 imageThird.style.display = 'block';
             } else {
                 imageThird.style.display = 'none';
+            }
+
+            if (head.contains(el)) {
+                imageHead.style.left = (e.pageX + 10) + 'px';
+                imageHead.style.top = (e.pageY + 0) + 'px';
+                imageHead.style.display = 'block';
+            } else {
+                imageHead.style.display = 'none';
             }
 
 
